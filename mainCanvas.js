@@ -1,7 +1,8 @@
 const canvas = document.getElementById("TotMain");
 const ctx = canvas.getContext("2d");
 canvas.width = (window.innerWidth / 100) * 70;
-canvas.height = 250;
+console.log(canvas.width);
+canvas.height = (window.innerWidth / 100) * 25;
 let particleArray = [];
 let adjustX = 5;
 let adjustY = 5;
@@ -12,18 +13,17 @@ const mouse = {
     y: null,
     radius: 100,
 };
-canvas.addEventListener("mousemove", (e) => {
-    console.log(e.x, e.y);
-});
+// canvas.addEventListener("mousemove", (e) => {});
 window.addEventListener("mousemove", (e) => {
-    mouse.x = e.x - (window.innerWidth / 100) * 25;
+    mouse.x = e.x - (window.innerWidth / 100) * 27;
     mouse.y = e.y - canvas.getBoundingClientRect().top;
+    // console.log("찐 마우스 좌표", e.x, e.y, "로고 표시 좌표", mouse.x, mouse.y);
 });
 ctx.textAlign = "center";
 ctx.fillStyle = "white";
-ctx.font = "bold 23px Verdana";
-ctx.fillText("Tottenham", 70, 20);
-ctx.fillText("Hotspur", 70, 40);
+ctx.font = `bold ${(canvas.width / 100) * 3}px Verdana`;
+ctx.fillText("Tottenham", 42, 10);
+ctx.fillText("Hotspur", 42, 20);
 
 const textCoordinates = ctx.getImageData(0, 0, 200, 100);
 
